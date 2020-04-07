@@ -78,7 +78,9 @@ def chatSpam(spam = 'npaj npaj npaj npaj npaj npaj', n = 50, find=False):
     
 #chatSpam()
         
-def rename(name='Fat Susan'):
+def rename(name1='N D L', name2='K O G R R', scroll=False):
+    
+    name1Last = True
     
     muteBtn = pg.locateOnScreen("mute.png", grayscale=True)
         
@@ -86,21 +88,46 @@ def rename(name='Fat Susan'):
         muteBtn = pg.locateOnScreen("mute.png", grayscale=True)
          
     mutePt = pg.center(muteBtn)
-    pg.click(mutePt.x/2 + 20, mutePt.y/2) #For little settings menu
     
-    time.sleep(0.1)
-    
-    pg.click(mutePt.x/2 + 20, mutePt.y/2 + 85) #For rename
-    
-    
-    pg.keyDown('delete')
-    time.sleep(0.5)
-    pg.keyUp('delete')
-    
-    pg.write(name)
-    pg.press('enter')
+    if (scroll):
+        while True:
+            
+            name1 = name1[2:] + name1[0:2]
+            
+            pg.click(mutePt.x/2 + 20, mutePt.y/2) #For little settings menu
+            
+            time.sleep(0.1)
+            
+            pg.click(mutePt.x/2 + 20, mutePt.y/2 + 85) #For rename
+            
+            pg.press('backspace', 10)
+            
+            pg.write('**'+name1+'**')
+            pg.press('enter')
+    else:
+        while True:
+            
+            
+            pg.click(mutePt.x/2 + 20, mutePt.y/2) #For little settings menu
+            
+            time.sleep(0.1)
+            
+            pg.click(mutePt.x/2 + 20, mutePt.y/2 + 85) #For rename
+            
+            pg.press('backspace', 10)
+            
+            if (name1Last):
+                name = name1
+            else:
+                name = name2
+            
+            pg.write('**'+name+'**')
+            pg.press('enter')
+            
+            name1Last = not name1Last
+            
 
-rename()
+#rename()
         
 
     
