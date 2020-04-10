@@ -9,8 +9,11 @@ Created on Mon Apr  6 15:20:16 2020
 import pyautogui as pg
 import time
 
-def bgSwitch(n = 20):
-    for i in range(n):
+
+print('ZoomFun v0.9 | Created by Benjamin Tripp')
+
+def bgSwitch():
+    while True:
         pg.press('right')
         time.sleep(0.25)
         pg.press('left')
@@ -21,20 +24,22 @@ def bgSwitch(n = 20):
 
 
 
-def reactSwitch(n = 100):
+def reactSwitch():
     
     reactBox = pg.locateOnScreen("react.png", grayscale=True)
-    print(n)
+
     while reactBox == None:
         reactBox = pg.locateOnScreen("react.png", grayscale=True)
     
     
     reactPt = pg.center(reactBox)
     
+    print('found box')
+    
     clapPt = (reactPt.x/2 - 20, reactPt.y/2 - 60)
     thumbPt = ((reactPt.x/2 + 20, reactPt.y/2 - 60))
     
-    for i in range(n):
+    while True:
         pg.click(reactPt.x/2, reactPt.y/2)
         pg.click(clapPt[0], clapPt[1])
         pg.click(reactPt.x/2, reactPt.y/2)
@@ -42,7 +47,7 @@ def reactSwitch(n = 100):
         
 #reactSwitch()
 
-def chatSpam(spam = 'npaj npaj npaj npaj npaj npaj', n = 50, find=False):
+def chatSpam(spam = 'spam', n = 50, find=False):
     
     if (find):
         #Open chat
@@ -78,7 +83,7 @@ def chatSpam(spam = 'npaj npaj npaj npaj npaj npaj', n = 50, find=False):
     
 #chatSpam()
         
-def rename(name1='N D L', name2='K O G R R', scroll=False):
+def rename(name1='B E N', name2='T R I P P', scroll=False):
     
     name1Last = True
     
