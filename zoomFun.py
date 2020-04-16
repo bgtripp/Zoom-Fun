@@ -37,7 +37,7 @@ def reactSwitch():
     print('found box')
     
     clapPt = (reactPt.x/2 - 20, reactPt.y/2 - 60)
-    thumbPt = ((reactPt.x/2 + 20, reactPt.y/2 - 60))
+    thumbPt = (reactPt.x/2 + 20, reactPt.y/2 - 60)
     
     while True:
         pg.click(reactPt.x/2, reactPt.y/2)
